@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Syeda Marjan — I design AI systems with guardrails, and the operations they run. Owner of RTA: 2,219 jobs handled, 47% refused at the gate, 771 AI-tailored documents.">
+<meta name="description" content="Syeda Marjan — I build the internal tools and AI workflows that take the repetitive half of an operation off your team. One workflow, built and handed over in 3 weeks, from $1,500.">
 <meta name="theme-color" content="#070B14">
 <meta name="color-scheme" content="dark">
 <title>Syeda Marjan</title>
@@ -19,7 +19,7 @@
   }
 
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth; overflow-x:hidden}
   body{
     margin:0; background:var(--bg); color:var(--text);
     font-family:var(--sans); font-size:16px; line-height:1.62;
@@ -38,7 +38,7 @@
   }
   .glow{
     position:absolute; left:50%; top:-320px; transform:translateX(-50%);
-    width:min(1100px,150vw); height:620px; z-index:0; pointer-events:none;
+    width:min(1100px,100%); height:620px; z-index:0; pointer-events:none;
     background:radial-gradient(ellipse at center, rgba(21,96,210,.30) 0%, rgba(21,96,210,0) 68%);
     filter:blur(10px);
   }
@@ -86,8 +86,10 @@
   .cta{display:flex; gap:11px; flex-wrap:wrap; margin-top:32px}
   .btn{
     display:inline-block; text-decoration:none; font-size:14.5px; font-weight:700;
-    padding:12px 22px; border-radius:9px; border:1px solid var(--border); white-space:nowrap;
+    padding:12px 22px; border-radius:9px; border:1px solid var(--border);
+    white-space:nowrap; max-width:100%;
   }
+  @media (max-width:560px){ .btn{white-space:normal} }
   .btn-solid{
     background:linear-gradient(160deg,#2E86E8 0%,#1560D2 100%);
     border-color:#2A6699; color:#061020;
@@ -315,12 +317,11 @@
   <div class="wrap">
     <span class="me">Syeda Marjan</span>
     <span class="links">
-      <a href="#system">The system</a>
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#process">Process</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#offer">What you get</a>
+      <a href="#proof">Proof</a>
+      <a href="#build">What I build</a>
+      <a href="#how">How it runs</a>
+      <a href="#contact">Start</a>
     </span>
   </div>
 </nav>
@@ -329,375 +330,203 @@
 
 <header>
   <div class="wrap">
-    <span class="eyebrow">Islamabad, Pakistan · Working remotely</span>
-    <h1 style="margin-top:20px;">I design AI systems that do the work —<br class="nb">
-      and <span class="blue">refuse the work that should not be done.</span></h1>
-    <p class="tag">I own RTA end to end: an operations platform where an AI pipeline writes
-      candidate documents inside guardrails I set, and a rules engine turns away 47% of everything
-      that arrives before a person spends a minute on it.</p>
-    <p class="tag" style="margin-top:14px;">I do not write the code. I decide what the system must
-      do, judge what it produces against real business cost, and send it back when it is wrong.</p>
+    <span class="eyebrow">For teams whose work still runs on spreadsheets, tabs and copy-paste</span>
+    <h1 style="margin-top:20px;">The repetitive half of your operation,<br class="nb">
+      done by <span class="blue">a system instead of a person.</span></h1>
+    <p class="tag">I build the internal tools and AI workflows that take it off your team &mdash;
+      with rules that refuse bad work before anyone touches it, and guardrails that stop the AI
+      inventing anything.</p>
     <div class="cta">
-      <a class="btn btn-solid" href="#system">See how it works</a>
-      <a class="btn btn-line" href="mailto:syedamarjanfarhan0@gmail.com">Start a project</a>
+      <a class="btn btn-solid" href="#offer">One workflow, built in 3 weeks &mdash; from $1,500</a>
+      <a class="btn btn-line" href="mailto:syedamarjanfarhan0@gmail.com?subject=One%20workflow">Email me</a>
     </div>
   </div>
 </header>
 
-<div class="wrap" style="padding-bottom:10px;">
-  <div class="tiles">
-    <div class="tile accent"><span class="n">2,219</span><span class="k">Jobs through the system</span></div>
-    <div class="tile"><span class="n">47%</span><span class="k">Refused at the gate</span></div>
-    <div class="tile"><span class="n">771</span><span class="k">AI-tailored resumes</span></div>
-    <div class="tile"><span class="n">$34.98</span><span class="k">Total AI spend</span></div>
-    <div class="tile"><span class="n">5,007</span><span class="k">Audited actions</span></div>
-    <div class="tile"><span class="n">87</span><span class="k">Specs written &amp; shipped</span></div>
-  </div>
-</div>
-
-<section id="system">
+<section id="problem">
   <div class="wrap">
     <div class="sec-head narrow">
-      <span class="eyebrow">The system</span>
-      <h2>A gate that refuses the work, and an AI that cannot invent.</h2>
-      <p>RTA is the platform I designed and directed for a live operation. Three parts of it are
-        worth showing, because they are the three things most teams get wrong: what you let in,
-        what you let the AI say, and whether anyone can tell who did what afterwards.</p>
+      <span class="eyebrow">The problem</span>
+      <h2>You are paying people to do what a rule could do.</h2>
     </div>
-
-    <div class="stack">
-
-      <div>
-        <span class="mini">01 · Everything, with its reason attached</span>
-        <div class="rta" role="img" aria-label="RTA's All Jobs screen: a table of sourced jobs with status and refusal reasons">
-          <div class="rta-in" style="padding-bottom:0;">
-            <div class="rta-nav" style="margin:-3px -3px 0;">
-              <span>Dashboard</span><span>SOP</span><span>Source</span><span>Applications</span>
-              <span>Workspace</span><span class="on">All Jobs</span><span>Reports</span>
-              <span>Interviews</span><span>Admin &#9662;</span>
-            </div>
-          </div>
-          <div class="rta-in">
-            <div class="rta-card">
-              <h4 class="rta-h">All Jobs <span class="count">2,219 handled &middot; 239 waiting</span></h4>
-              <div style="overflow-x:auto;">
-              <table class="rta-t">
-                <thead><tr>
-                  <th>Job ID</th><th>Posted</th><th>Company</th><th>Position</th>
-                  <th>Work setup</th><th>Country</th><th>Link</th><th>Status</th>
-                </tr></thead>
-                <tbody>
-                  <tr><td class="rta-mono">2214</td><td class="rta-mono">19 Sep</td>
-                    <td><b>Northwind Labs</b></td><td>Senior SEO Strategist</td>
-                    <td>Remote</td><td>United States</td>
-                    <td><a class="rta-link" href="#system">Open</a></td>
-                    <td><span class="pill pill-sourced">Sourced</span></td></tr>
-                  <tr><td class="rta-mono">2207</td><td class="rta-mono">18 Sep</td>
-                    <td><b>Meridian Health</b></td><td>Content &amp; SEO Lead</td>
-                    <td>Remote</td><td>United Kingdom</td>
-                    <td><a class="rta-link" href="#system">Open</a></td>
-                    <td><span class="pill pill-applied">Applied</span></td></tr>
-                  <tr><td class="rta-mono">2198</td><td class="rta-mono">17 Sep</td>
-                    <td><b>Calder &amp; Roe</b></td><td>Affiliate Marketing Manager</td>
-                    <td>Remote</td><td>Canada</td>
-                    <td><a class="rta-link" href="#system">Open</a></td>
-                    <td><span class="pill pill-locked">Locked</span></td></tr>
-                  <tr><td class="rta-mono">2186</td><td class="rta-mono">28 Aug</td>
-                    <td><b>Verity Group</b></td><td>SEO Specialist</td>
-                    <td>Remote</td><td>Australia</td>
-                    <td><a class="rta-link" href="#system">Open</a></td>
-                    <td><span class="pill pill-rejected">Rejected by RTA</span>
-                      <span class="rta-sub">older than 15 days</span></td></tr>
-                  <tr><td class="rta-mono">2181</td><td class="rta-mono">18 Sep</td>
-                    <td><b>Ashfield Partners</b></td><td>Digital Marketing Executive</td>
-                    <td>Hybrid</td><td>Ireland</td>
-                    <td><a class="rta-link" href="#system">Open</a></td>
-                    <td><span class="pill pill-rejected">Rejected by RTA</span>
-                      <span class="rta-sub">onsite or hybrid</span></td></tr>
-                  <tr><td class="rta-mono">2177</td><td class="rta-mono">17 Sep</td>
-                    <td><b>Northwind Labs</b></td><td>Senior SEO Strategist</td>
-                    <td>Remote</td><td>United States</td>
-                    <td><a class="rta-link" href="#system">Open</a></td>
-                    <td><span class="pill pill-rejected">Rejected by RTA</span>
-                      <span class="rta-sub">duplicate of another job</span></td></tr>
-                </tbody>
-              </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="cap">Every row carries who holds it, what state it is in, and why. Two people can
-          never work the same job, and no job can quietly go missing.</p>
-      </div>
-
-      <div>
-        <span class="mini">02 · The gate</span>
-        <p class="lead" style="margin:-4px 0 18px; max-width:66ch;">Nothing enters the pipeline
-          without passing a rule, and every refusal is written down with its reason. Roughly half
-          of what the sourcing feed sends is turned away before a person sees it.</p>
-        <div class="rta" role="img" aria-label="RTA's intake gate deciding on six incoming links, four refused with a reason, one held and one accepted">
-          <div class="rta-in">
-            <div class="rta-card">
-              <h4 class="rta-h">Intake <span class="count">six links arriving from the sourcing feed</span></h4>
-              <div class="rta-gate">
-                <div class="row"><span class="co">Verity Group</span>
-                  <span class="rta-mono">SEO Specialist &middot; posted 28 Aug</span>
-                  <span class="why">refused &middot; older than 15 days</span></div>
-                <div class="row"><span class="co">Ashfield Partners</span>
-                  <span class="rta-mono">Digital Marketing &middot; Hybrid</span>
-                  <span class="why">refused &middot; onsite or hybrid</span></div>
-                <div class="row"><span class="co">Northwind Labs</span>
-                  <span class="rta-mono">Senior SEO Strategist</span>
-                  <span class="why">refused &middot; already in the pipeline</span></div>
-                <div class="row"><span class="co">&#26666;&#24335;&#20250;&#31038;&#12472;&#12458;&#12467;&#12540;&#12489;</span>
-                  <span class="rta-mono">SEO&#12467;&#12531;&#12469;&#12523;&#12479;&#12531;&#12488;</span>
-                  <span class="why">refused &middot; not in English</span></div>
-                <div class="row"><span class="co">Halden Media</span>
-                  <span class="rta-mono">SEO Manager &middot; setup not stated</span>
-                  <span class="why" style="color:#E8B33F;">to Preview &middot; work setup missing</span></div>
-                <div class="row pass"><span class="co">Meridian Health</span>
-                  <span class="rta-mono">Content &amp; SEO Lead &middot; Remote &middot; posted 18 Sep</span>
-                  <span class="why">accepted</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="cap">Four refused outright. One held for a missing field rather than thrown away —
-          a sourcer fills it in and sends it back through. One accepted.</p>
-      </div>
-
-      <div>
-        <span class="mini">03 · The AI pipeline</span>
-        <p class="lead" style="margin:-4px 0 20px; max-width:66ch;">The model writes three fields of
-          a resume and nothing else, inside guardrails set per candidate. What comes back is checked
-          against six rules before it is allowed to save.</p>
-        <div class="pipe">
-          <div class="pipe-col">
-            <span class="pipe-lab">Goes to the model</span>
-            <div class="pipe-box in">
-              <b>The job description</b>
-              <b>The candidate's guardrails</b>
-              <span>what may never be claimed &middot; language to avoid &middot; industries to keep
-                out &middot; what to emphasise &middot; tone</span>
-            </div>
-          </div>
-          <div class="pipe-arrow" aria-hidden="true">&rarr;</div>
-          <div class="pipe-col">
-            <span class="pipe-lab">Comes back</span>
-            <div class="pipe-box out">
-              <b>Title</b><b>Summary</b><b>Core skills</b>
-              <span>three fields, nothing else</span>
-            </div>
-          </div>
-          <div class="pipe-arrow" aria-hidden="true">&rarr;</div>
-          <div class="pipe-col">
-            <span class="pipe-lab">Rejected before saving if it</span>
-            <div class="pipe-box chk">
-              <span>names a forbidden item</span>
-              <span>states years where this candidate forbids it</span>
-              <span>uses the overused opening</span>
-              <span>carries scraper duplication in the title</span>
-              <span>added no terminology from the posting</span>
-              <span>runs over 430 characters</span>
-            </div>
-          </div>
-        </div>
-        <div class="never">
-          <span class="never-lab">Never sent, never merged back</span>
-          <p>Work history &middot; education &middot; dates &middot; contact details. These are
-            copied from the saved base resume after the model has finished. The model cannot alter
-            them because it is never shown them — which is why a tailored resume cannot quietly
-            invent a job the candidate did not have.</p>
-        </div>
-      </div>
-
-      <div>
-        <span class="mini">What that produces</span>
-        <div class="flow">
-          <div class="flow-row">
-            <span class="flow-node">Link arrives</span>
-            <span class="flow-arm">&rarr;</span>
-            <span class="flow-node gate">The gate</span>
-          </div>
-          <div class="flow-branch">
-            <div class="branch"><span class="branch-arm">&#8627;</span>
-              <span class="flow-node stop">Refused</span>
-              <span class="branch-why">too old &middot; onsite or hybrid &middot; duplicate &middot;
-                not in English &middot; blocked company &middot; title not approved</span></div>
-            <div class="branch"><span class="branch-arm">&#8627;</span>
-              <span class="flow-node hold">Preview</span>
-              <span class="branch-why">a field is missing rather than wrong — a sourcer fills it and
-                sends it back through</span></div>
-            <div class="branch"><span class="branch-arm">&#8627;</span>
-              <span class="flow-node pass">Sourced</span>
-              <span class="branch-why">joins the queue, remote first, newest first</span></div>
-          </div>
-          <div class="flow-row" style="margin-top:6px;">
-            <span class="flow-node">Locked to one person</span>
-            <span class="flow-arm">&rarr;</span>
-            <span class="flow-node">Documents tailored</span>
-            <span class="flow-arm">&rarr;</span>
-            <span class="flow-node">Applied, with proof</span>
-            <span class="flow-arm">&rarr;</span>
-            <span class="flow-node">Interview</span>
-          </div>
-          <p class="flow-note">A lock expires by itself, so a job never sits with somebody who
-            stopped working. Every move is written to the audit log with who did it and what
-            changed — 5,007 of them so far.</p>
-        </div>
-      </div>
-
-      <p style="margin:0;"><a href="https://claude.ai/artifact/MzmRBdHuWpTTVkEu8U7pFp">Read the full
-        case study &rarr;</a> <span style="color:var(--dim);">— every figure read from the live
-        database, four screens, and seven decisions with the fault behind each one.</span></p>
-
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="wrap">
-    <div class="sec-head narrow">
-      <span class="eyebrow">Services</span>
-      <h2>Three things, and they fit together.</h2>
-      <p>Most people building internal tools have never run the operation. Most people running the
-        operation have never built the tool. I have done both — which is why the rules I write
-        survive contact with a working day.</p>
-    </div>
-
     <div class="svc">
       <span class="no">01</span>
-      <div>
-        <h3>AI systems with guardrails</h3>
-        <p>Document and content pipelines that use a model without trusting it. Per-subject rules on
-          what may never be claimed, what language is banned, what to emphasise. Validators that
-          reject the model's output before it can be saved. Cost measured per call, so the spend is
-          a number rather than a worry.</p>
-        <span class="for">For <b>teams putting AI in front of something that matters</b></span>
-      </div>
+      <div><h3>Work arrives that should never have been started</h3>
+        <p>Nobody checks it at the door, so somebody spends an hour finding out.</p></div>
     </div>
-
     <div class="svc">
       <span class="no">02</span>
-      <div>
-        <h3>Internal tools and automation</h3>
-        <p>The system behind the operation: intake rules that refuse bad work before anyone touches
-          it, locking so two people cannot duplicate effort, an audit log so nothing is arguable,
-          and n8n workflows joining the tools you already pay for so nothing is re-typed between
-          them.</p>
-        <span class="for">For <b>agencies and teams drowning in spreadsheets and manual steps</b></span>
-      </div>
+      <div><h3>The same thing typed into four different tools</h3>
+        <p>And when the four disagree, nobody knows which one is right.</p></div>
     </div>
-
     <div class="svc">
       <span class="no">03</span>
-      <div>
-        <h3>Operations design and playbooks</h3>
-        <p>The layer that makes a team repeatable: standard operating procedures, non-negotiable
-          quality rules, handoffs between roles, and the weekly review that keeps it honest. Plus
-          the full recruitment desk itself — sourcing, screening, applications, interview
-          coordination — run as a pipeline with a standard, not a pile of tabs.</p>
-        <span class="for">For <b>teams that grew faster than their process</b></span>
+      <div><h3>AI that writes something nobody verified</h3>
+        <p>It is confident, it is wrong, and it went out under your name.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="sec-head narrow">
+      <span class="eyebrow">What you get</span>
+      <h2>One workflow, built and handed over.</h2>
+    </div>
+    <div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));">
+      <div class="tile accent"><span class="n">$1,500</span><span class="k">From, fixed price</span></div>
+      <div class="tile"><span class="n">3 weeks</span><span class="k">Start to handover</span></div>
+      <div class="tile"><span class="n">Yours</span><span class="k">The code and the account</span></div>
+    </div>
+    <div class="cards" style="margin-top:22px;">
+      <div class="card">
+        <span class="lab">Week 1</span>
+        <span class="t">Watch the real work</span>
+        <span class="d">I sit with what actually happens and measure it. You get the fault written
+          down with what it costs &mdash; before anything is built.</span>
+      </div>
+      <div class="card">
+        <span class="lab">Week 2</span>
+        <span class="t">Build it small</span>
+        <span class="d">The workflow, running on your own tools and your own data. In use that
+          week, so a bad idea is found in hours rather than after a quarter.</span>
+      </div>
+      <div class="card">
+        <span class="lab">Week 3</span>
+        <span class="t">Hand it over</span>
+        <span class="d">Checked against the rows already in your system, not just in theory. Your
+          team is shown how it works and what to do when it is wrong.</span>
+      </div>
+    </div>
+    <p class="cap" style="margin-top:18px; max-width:70ch;">
+      More than one workflow, or something that needs to keep running, is quoted after week 1 &mdash;
+      once the cost of the fault is a number rather than a guess.
+    </p>
+    <div class="cta" style="margin-top:22px;">
+      <a class="btn btn-solid" href="mailto:syedamarjanfarhan0@gmail.com?subject=One%20workflow">Tell me what is breaking</a>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head narrow">
+      <span class="eyebrow">Proof</span>
+      <h2>A system I own, running a live operation.</h2>
+      <p>RTA. Not a demo and not a side project &mdash; every figure below is read from its
+        database, today.</p>
+    </div>
+
+    <div class="tiles">
+      <div class="tile accent"><span class="n">2,219</span><span class="k">Jobs through it</span></div>
+      <div class="tile"><span class="n">47%</span><span class="k">Refused before a person saw them</span></div>
+      <div class="tile"><span class="n">771</span><span class="k">AI documents written</span></div>
+      <div class="tile"><span class="n">$34.98</span><span class="k">Total AI spend</span></div>
+      <div class="tile"><span class="n">5,007</span><span class="k">Actions, all audited</span></div>
+      <div class="tile"><span class="n">88</span><span class="k">Interviews out the other end</span></div>
+    </div>
+
+    <p class="cap" style="margin:16px 0 26px; max-width:74ch;">
+      Nearly half of everything that arrives is turned away automatically, each refusal with its
+      reason attached. 771 tailored documents cost $34.98 in total &mdash; about four and a half
+      pence each.
+    </p>
+
+    <div class="rta" role="img" aria-label="RTA's intake deciding on six incoming links: four refused with a reason, one held, one accepted">
+      <div class="rta-in">
+        <div class="rta-card">
+          <h4 class="rta-h">Intake <span class="count">six links arriving</span></h4>
+          <div class="rta-gate">
+            <div class="row"><span class="co">Verity Group</span>
+              <span class="rta-mono">SEO Specialist &middot; posted 28 Aug</span>
+              <span class="why">refused &middot; older than 15 days</span></div>
+            <div class="row"><span class="co">Ashfield Partners</span>
+              <span class="rta-mono">Digital Marketing &middot; Hybrid</span>
+              <span class="why">refused &middot; onsite or hybrid</span></div>
+            <div class="row"><span class="co">Northwind Labs</span>
+              <span class="rta-mono">Senior SEO Strategist</span>
+              <span class="why">refused &middot; already in the pipeline</span></div>
+            <div class="row"><span class="co">&#26666;&#24335;&#20250;&#31038;&#12472;&#12458;&#12467;&#12540;&#12489;</span>
+              <span class="rta-mono">SEO&#12467;&#12531;&#12469;&#12523;&#12479;&#12531;&#12488;</span>
+              <span class="why">refused &middot; not in English</span></div>
+            <div class="row"><span class="co">Halden Media</span>
+              <span class="rta-mono">SEO Manager &middot; setup not stated</span>
+              <span class="why" style="color:#E8B33F;">held &middot; a field is missing</span></div>
+            <div class="row pass"><span class="co">Meridian Health</span>
+              <span class="rta-mono">Content &amp; SEO Lead &middot; Remote &middot; posted 18 Sep</span>
+              <span class="why">accepted</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="cap">Four turned away, one held because a field was missing rather than wrong, one
+      through. No one was asked to look at the other five.</p>
+
+    <p style="margin-top:22px;"><a href="https://claude.ai/artifact/MzmRBdHuWpTTVkEu8U7pFp">The full
+      case study &rarr;</a> <span style="color:var(--dim);">&mdash; the screens, the AI guardrails,
+      and seven decisions with the fault behind each one.</span></p>
+  </div>
+</section>
+
+<section id="build">
+  <div class="wrap">
+    <div class="sec-head narrow">
+      <span class="eyebrow">What I build</span>
+      <h2>Three kinds of thing.</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="lab">01</span>
+        <span class="t">A rule at the door</span>
+        <span class="d">Work that should not have been started is refused before anyone touches
+          it, with the reason recorded so the source can be told to stop sending it.</span>
+      </div>
+      <div class="card">
+        <span class="lab">02</span>
+        <span class="t">AI that cannot invent</span>
+        <span class="d">The model writes a few named fields and nothing else, inside rules you
+          set, and what comes back is checked before it can be saved.</span>
+      </div>
+      <div class="card">
+        <span class="lab">03</span>
+        <span class="t">One place instead of four</span>
+        <span class="d">The tools you already pay for, joined up, so nothing is re-typed and
+          every change is recorded against the person who made it.</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="work">
+<section id="how">
   <div class="wrap">
     <div class="sec-head narrow">
-      <span class="eyebrow">Selected work</span>
-      <h2>Things you can look at.</h2>
+      <span class="eyebrow">How it runs</span>
+      <h2>Find the fault. Name what it costs. Then write the rule.</h2>
+      <p>Every rule in RTA came from something going wrong in live operation, not from a plan
+        written in advance. That is the whole method.</p>
     </div>
-
-    <div class="cards">
-      <a class="card" href="https://claude.ai/artifact/MzmRBdHuWpTTVkEu8U7pFp">
-        <span class="lab">Case study</span>
-        <span class="t">Inside RTA</span>
-        <span class="d">2,219 jobs in seven weeks, 47% refused before anyone spent a minute. Four
-          screens, the AI pipeline, and seven decisions with the fault behind each one.</span>
-      </a>
-
-      <a class="card" href="https://github.com/syedamarjanfarhan0-droid/recruitment-playbook" target="_blank" rel="noopener">
-        <span class="lab">Process · public</span>
-        <span class="t">Operations Playbook</span>
-        <span class="d">Three linked SOPs over a six-stage pipeline, from sourced link to confirmed
-          interview, with the quality rules a real team works to.</span>
-      </a>
-
-      <a class="card" href="https://github.com/syedamarjanfarhan0-droid/clipper" target="_blank" rel="noopener">
-        <span class="lab">Tool · public</span>
-        <span class="t">Clipper</span>
-        <span class="d">Python and ffmpeg. Cuts one long video into many clips from a plain text
-          list — because doing fifty by hand is a day's work.</span>
-      </a>
-
-      <a class="card" href="https://claude.ai/artifact/4wTDK8KUPD8CbdAW3ASrWL">
-        <span class="lab">Background</span>
-        <span class="t">Resume</span>
-        <span class="d">One page, built from measured figures rather than adjectives.</span>
-      </a>
-    </div>
-
-    <div class="pull">
-      <p>"A missed match costs one email handled by hand. A wrong match writes the wrong candidate,
-        the wrong salary and the wrong link onto a record that looks complete — so nobody ever
-        checks it."</p>
-      <span class="who">On why a matching rule was deliberately tightened to lose some correct matches</span>
-    </div>
-  </div>
-</section>
-
-<section id="process">
-  <div class="wrap">
-    <div class="sec-head narrow">
-      <span class="eyebrow">How I work</span>
-      <h2>Find the fault first. Then write the rule.</h2>
-      <p>Every rule in every system I have built came from something going wrong in live
-        operation — not from a plan written in advance.</p>
-    </div>
-
-    <div class="step"><span class="n">01</span><div><b>Watch the real work</b>
-      <p>Sit with what actually happens for a week. The problem is rarely the one described in the
-        brief.</p></div></div>
-    <div class="step"><span class="n">02</span><div><b>Name the cost</b>
-      <p>What does the fault cost when it happens — an hour, a wasted application, a lost candidate?
-        That number decides how much the fix is worth.</p></div></div>
-    <div class="step"><span class="n">03</span><div><b>Write it as a rule</b>
-      <p>Precise enough to build from and to argue with. If it cannot be stated in two sentences it
-        is not understood yet.</p></div></div>
-    <div class="step"><span class="n">04</span><div><b>Ship it small</b>
-      <p>One change at a time, in use the same day, so a bad idea is found in hours rather than
-        after a quarter of building.</p></div></div>
-    <div class="step"><span class="n">05</span><div><b>Check it against live data</b>
-      <p>Not whether it works in theory — whether it did the right thing to the thousand rows
-        already in the system.</p></div></div>
   </div>
 </section>
 
 <section id="about">
   <div class="wrap">
     <div class="sec-head narrow">
-      <span class="eyebrow">About</span>
+      <span class="eyebrow">Who I am</span>
       <h2>I decide what the system must do.</h2>
     </div>
     <div class="narrow">
-      <p class="lead">I have been using AI in production since 2019 and now direct a platform built
-        on it. I wrote 87 numbered specifications into RTA, each one traceable in the code it
-        produced, and I judge every one of them against what it costs the operation when it is
-        wrong.</p>
-      <p class="lead">The domain underneath is recruitment operations — six years of it, across
-        10,000+ candidate applications, leading a team of 15 and securing 88 interviews through a
-        funnel I designed. That is where I learned what a fault actually costs. What I want to
-        build is AI systems.</p>
+      <p class="lead">Using AI in production since 2019. I wrote 87 numbered specifications into
+        RTA, each one traceable in the code it produced, and I judge every one against what it
+        costs when it is wrong. I do not write the code. I decide what it must do and send it back
+        when it is wrong, which is the half that decides whether the thing works.</p>
+      <p class="lead">Six years of recruitment operations underneath it &mdash; 10,000+ candidate
+        applications, a team of 15 &mdash; which is where I learned what a fault actually costs.</p>
       <div class="chips">
-        <span class="chip">Claude</span><span class="chip">Anthropic API</span><span class="chip">ChatGPT</span>
+        <span class="chip">Claude</span><span class="chip">Anthropic API</span>
         <span class="chip">Prompt &amp; guardrail design</span><span class="chip">n8n</span>
-        <span class="chip">Python</span><span class="chip">PostgreSQL</span><span class="chip">REST APIs</span>
-        <span class="chip">Google Workspace APIs</span><span class="chip">Render</span>
-        <span class="chip">GitHub</span><span class="chip">Notion</span><span class="chip">ClickUp</span>
-        <span class="chip">HubSpot</span><span class="chip">Apollo.io</span>
-        <span class="chip">Boolean &amp; X-Ray search</span>
+        <span class="chip">Python</span><span class="chip">PostgreSQL</span>
+        <span class="chip">REST APIs</span><span class="chip">Google Workspace APIs</span>
+        <span class="chip">Render</span><span class="chip">GitHub</span>
       </div>
     </div>
   </div>
@@ -707,19 +536,19 @@
 
 <footer id="contact">
   <div class="wrap narrow">
-    <span class="eyebrow">Contact</span>
+    <span class="eyebrow">Start</span>
     <h2 style="margin-top:12px;">Tell me what is breaking.</h2>
-    <p class="lead" style="margin-top:15px;">Send a short note about the operation and where it
-      hurts. I reply within a day, and I will say plainly if it is not something I should take on.</p>
+    <p class="lead" style="margin-top:15px;">A short note about the operation and where it hurts.
+      I reply within a day, and I will say plainly if it is not something I should take on.</p>
     <div class="cta" style="margin-bottom:6px;">
-      <a class="btn btn-ghost" href="mailto:syedamarjanfarhan0@gmail.com">syedamarjanfarhan0@gmail.com</a>
+      <a class="btn btn-ghost" href="mailto:syedamarjanfarhan0@gmail.com?subject=One%20workflow">syedamarjanfarhan0@gmail.com</a>
     </div>
     <div class="lines">
       <a href="https://linkedin.com/in/syedamarjan" target="_blank" rel="noopener">linkedin.com/in/syedamarjan</a>
       <a href="https://github.com/syedamarjanfarhan0-droid" target="_blank" rel="noopener">github.com/syedamarjanfarhan0-droid</a>
       <a href="https://upwork.com/fl/syedamarjan" target="_blank" rel="noopener">upwork.com/fl/syedamarjan</a>
     </div>
-    <p class="copy">&copy; 2026 Syeda Marjan &middot; Islamabad, Pakistan</p>
+    <p class="copy">&copy; 2026 Syeda Marjan &middot; Islamabad, Pakistan &middot; working remotely</p>
   </div>
 </footer>
 </body>
