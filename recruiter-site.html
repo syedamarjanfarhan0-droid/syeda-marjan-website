@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syeda Marjan — Recruitment Specialist & Talent Sourcer</title>
+<meta name="description" content="Recruitment specialist and talent sourcer with 5+ years of experience. Candidate sourcing, resume screening, and AI-assisted recruitment support for growing teams.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root{
+  --ink:#1c2620; --paper:#f2f0e6; --paper-soft:#e9e6d8;
+  --teal:#1f5b52; --teal-pale:#e2ede9; --brass:#b8863f; --brass-soft:#f3e6d2;
+  --line:#d9d4c2; --muted:#5c6459;
+  --serif:'Fraunces',serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans); color:var(--ink); background:var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+a{color:inherit;}
+img,svg{display:block; max-width:100%;}
+
+/* header */
+header{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--line);}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:20px 0;}
+.logo{font-family:var(--serif); font-size:20px; font-weight:600; letter-spacing:-0.3px;}
+.navlinks{display:flex; gap:32px; font-size:14px; font-weight:500;}
+.navlinks a{text-decoration:none; color:var(--muted); transition:color .15s;}
+.navlinks a:hover{color:var(--ink);}
+.cta-btn{background:var(--teal); color:#fff; padding:11px 22px; border-radius:3px; font-size:14px; font-weight:600; text-decoration:none; display:inline-block; transition:background .15s;}
+.cta-btn:hover{background:#173f39;}
+@media(max-width:720px){ .navlinks{display:none;} }
+
+/* hero */
+.hero{padding:88px 0 60px;}
+.hero-eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal); margin-bottom:18px;}
+.hero h1{font-family:var(--serif); font-size:clamp(38px,6vw,64px); font-weight:500; line-height:1.06; letter-spacing:-1px; max-width:760px;}
+.hero h1 em{font-style:italic; color:var(--teal);}
+.hero p{font-size:18px; color:var(--muted); max-width:520px; margin:24px 0 32px;}
+.hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+.btn-outline{border:1.5px solid var(--ink); padding:11px 22px; border-radius:3px; font-size:14px; font-weight:600; text-decoration:none;}
+
+/* pipeline ledger - signature element */
+.ledger{margin-top:64px; border-top:1.5px solid var(--ink); border-bottom:1.5px solid var(--ink);}
+.ledger-row{display:grid; grid-template-columns:repeat(5,1fr);}
+.ledger-cell{padding:22px 18px; border-right:1px solid var(--line);}
+.ledger-cell:last-child{border-right:none;}
+.ledger-num{font-family:var(--mono); font-size:26px; font-weight:500; color:var(--teal);}
+.ledger-label{font-size:12.5px; color:var(--muted); margin-top:4px; line-height:1.4;}
+@media(max-width:720px){ .ledger-row{grid-template-columns:repeat(2,1fr);} .ledger-cell{border-bottom:1px solid var(--line);} }
+
+/* section shared */
+section{padding:76px 0;}
+.section-head{max-width:560px; margin-bottom:44px;}
+.eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal); margin-bottom:12px;}
+.section-head h2{font-family:var(--serif); font-size:clamp(28px,4vw,38px); font-weight:500; letter-spacing:-0.5px;}
+
+/* services */
+.services{background:var(--teal-pale);}
+.svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+.svc-card{background:var(--paper); padding:32px 28px;}
+.svc-num{font-family:var(--mono); font-size:13px; color:var(--brass); margin-bottom:16px;}
+.svc-card h3{font-family:var(--serif); font-size:21px; font-weight:500; margin-bottom:10px;}
+.svc-card p{font-size:14.5px; color:var(--muted);}
+@media(max-width:800px){ .svc-grid{grid-template-columns:1fr;} }
+
+/* process */
+.process-list{border-top:1px solid var(--line);}
+.process-item{display:grid; grid-template-columns:70px 1fr; gap:20px; padding:26px 0; border-bottom:1px solid var(--line); align-items:start;}
+.process-item .pnum{font-family:var(--serif); font-size:32px; font-weight:500; color:var(--brass);}
+.process-item h4{font-size:17px; font-weight:600; margin-bottom:6px;}
+.process-item p{font-size:14.5px; color:var(--muted); max-width:520px;}
+
+/* about */
+.about{background:var(--ink); color:var(--paper);}
+.about .eyebrow{color:var(--brass);}
+.about .section-head h2{color:var(--paper);}
+.about-body{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start;}
+.about-body p{font-size:15.5px; color:#cfd4c9; margin-bottom:16px;}
+.about-tags{display:flex; flex-wrap:wrap; gap:8px;}
+.tag{font-family:var(--mono); font-size:12px; border:1px solid #3d453e; padding:6px 12px; border-radius:20px; color:#cfd4c9;}
+@media(max-width:800px){ .about-body{grid-template-columns:1fr;} }
+
+/* contact */
+.contact-inner{text-align:center; max-width:600px; margin:0 auto;}
+.contact h2{font-family:var(--serif); font-size:clamp(30px,5vw,44px); font-weight:500; letter-spacing:-0.5px; margin-bottom:16px;}
+.contact p{color:var(--muted); font-size:16px; margin-bottom:36px;}
+.contact-ctas{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+footer{border-top:1px solid var(--line); padding:32px 0; text-align:center; font-size:13px; color:var(--muted);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Syeda Marjan</div>
+    <nav class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="cta-btn" href="#contact">Start a project</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Recruitment specialist · talent sourcer</div>
+    <h1>Finding the right people, <em>without slowing down.</em></h1>
+    <p>I help growing companies source, screen, and shortlist qualified candidates — combining 5+ years of hands-on recruiting with AI-assisted screening to move faster without losing the human touch.</p>
+    <div class="hero-ctas">
+      <a class="cta-btn" href="#contact">Get in touch</a>
+      <a class="btn-outline" href="#services">See services</a>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger-row">
+        <div class="ledger-cell"><div class="ledger-num">5+</div><div class="ledger-label">Years of recruiting experience</div></div>
+        <div class="ledger-cell"><div class="ledger-num">10,000+</div><div class="ledger-label">Candidate applications managed</div></div>
+        <div class="ledger-cell"><div class="ledger-num">100+</div><div class="ledger-label">Candidates sourced monthly</div></div>
+        <div class="ledger-cell"><div class="ledger-num">80+</div><div class="ledger-label">Interviews coordinated monthly</div></div>
+        <div class="ledger-cell"><div class="ledger-num">5</div><div class="ledger-label">Industries served, IT to Healthcare</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What I do</div>
+      <h2>Recruitment support that fits how your team hires.</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <h3>Candidate sourcing</h3>
+        <p>LinkedIn Recruiter Lite, Boolean and X-Ray search, Indeed resume search, and passive candidate outreach to build a real talent pipeline for your open roles.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <h3>Screening & shortlisting</h3>
+        <p>Resume review, qualification assessment, and AI-assisted screening to surface your strongest candidates faster, without losing the personal read.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <h3>Recruitment operations</h3>
+        <p>ATS and pipeline management, interview coordination, recruitment reporting, and the administrative work that keeps hiring on track.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2>A clear process, from first brief to final shortlist.</h2>
+    </div>
+    <div class="process-list">
+      <div class="process-item"><div class="pnum">01</div><div><h4>Discovery</h4><p>Understand your hiring needs, the role requirements, and what your ideal candidate actually looks like.</p></div></div>
+      <div class="process-item"><div class="pnum">02</div><div><h4>Sourcing</h4><p>Source qualified candidates using LinkedIn Recruiter Lite, Boolean and X-Ray search, and targeted outreach.</p></div></div>
+      <div class="process-item"><div class="pnum">03</div><div><h4>Screening</h4><p>Review resumes, assess qualifications, and shortlist the candidates who genuinely fit the role.</p></div></div>
+      <div class="process-item"><div class="pnum">04</div><div><h4>Coordination</h4><p>Schedule interviews, manage candidate communication, and keep your pipeline moving without gaps.</p></div></div>
+      <div class="process-item"><div class="pnum">05</div><div><h4>Reporting</h4><p>Keep your records current with organized recruitment reports and clear hiring updates.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About</div>
+      <h2>Recruiting expertise, sharpened with modern tools.</h2>
+    </div>
+    <div class="about-body">
+      <div>
+        <p>I've spent 5+ years supporting recruitment agencies, startups, and growing businesses — managing recruitment campaigns involving 10,000+ candidate applications, coordinating 80+ interviews a month across time zones, and sourcing qualified professionals across IT, Healthcare, Sales, Business Support, and Professional Services.</p>
+        <p>I bring the same attention to detail to every search, backed by AI-assisted tools that speed up screening and communication without replacing the judgment that makes a good hire.</p>
+      </div>
+      <div>
+        <div class="about-tags">
+          <span class="tag">LinkedIn Recruiter Lite</span>
+          <span class="tag">Boolean Search</span>
+          <span class="tag">X-Ray Search</span>
+          <span class="tag">ATS Management</span>
+          <span class="tag">Resume Screening</span>
+          <span class="tag">Interview Coordination</span>
+          <span class="tag">Recruitment Reporting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-inner">
+    <h2>Ready to build your team?</h2>
+    <p>Send a message with your hiring needs, and I'll get back to you within a day.</p>
+    <div class="contact-ctas">
+      <a class="cta-btn" href="mailto:marjansyeda0@gmail.com">Email me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Syeda Marjan. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
