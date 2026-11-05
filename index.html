@@ -65,10 +65,13 @@ td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
 .contact p{color:#d5e6e0;margin-top:10px;max-width:620px}
 footer{font-size:13px;color:var(--muted);padding:0 0 32px}
 @media(max-width:800px){.hero,.contact{padding:44px 22px}.stats{grid-template-columns:1fr 1fr}.steps,.grid,.proof,.skills{grid-template-columns:1fr}table{font-size:13px}th,td{padding:9px}}
+.intro{margin-top:56px;display:grid;grid-template-columns:1fr 1.6fr;gap:28px;align-items:center}
+.intro video{width:100%;border-radius:16px;display:block;background:#092F2D;box-shadow:0 18px 50px rgba(6,78,73,.18)}
+@media(max-width:800px){.intro{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav><div><a href="#how">How I work</a><a href="#software">Software</a><a href="#results">Results</a><a href="#skills">Skills</a><a class="cta" href="#contact">Contact</a></div></nav>
+<nav><div><a href="#intro">Intro</a><a href="#how">How I work</a><a href="#software">Software</a><a href="#results">Results</a><a href="#skills">Skills</a><a class="cta" href="#contact">Contact</a></div></nav>
 <div class="wrap">
 
 <header class="hero">
@@ -86,6 +89,17 @@ footer{font-size:13px;color:var(--muted);padding:0 0 32px}
     <div class="stat"><b>7</b><span>tools built with Claude AI, no dev team</span></div>
   </div>
 </header>
+
+<section id="intro" class="intro">
+  <div>
+    <div class="kick">Meet me in 45 seconds</div>
+    <h2>What I build, and what it changed.</h2>
+    <p class="lede">A short walk through my work: the job platform I built with Claude AI, the pipeline that feeds it, the checks that stop bad jobs, and the results for real clients.</p>
+  </div>
+  <video controls playsinline preload="metadata" poster="img/intro-poster.jpg" aria-label="Syeda Marjan, 45 second introduction">
+    <source src="files/syeda-marjan-intro.mp4" type="video/mp4">
+  </video>
+</section>
 
 <section id="how">
   <div class="kick">How I work</div>
