@@ -1,10 +1,10 @@
 # syeda-marjan-website
 
-Personal site for Syeda Marjan — AI systems and recruitment operations.
+Personal portfolio site for Syeda Marjan: AI automation, web apps built with Claude AI, and the real client results they produced.
 
 | File | What it is |
 |---|---|
-| `index.html` | The live site. One file, no build step — open it in a browser or serve it with GitHub Pages. |
-| `recruiter-site.html` | The previous version of the site, kept for reference. |
-
-To publish: **Settings → Pages → Source: Deploy from a branch → `main` / `/ (root)`**.
+| `index.html` | The live site. One file, no build step. Served by GitHub Pages from `main`. |
+| `files/` | Portfolio / case studies PDF and resume PDF linked from the site and the resume. |
+| `img/` | Proof screenshots (names blurred) and demo-account screenshots. |
+| `previous-site.html`, `recruiter-site.html` | Earlier versions, kept for reference. |

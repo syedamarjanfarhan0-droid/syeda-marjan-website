@@ -1,555 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Syeda Marjan — I build the internal tools and AI workflows that take the repetitive half of an operation off your team. One workflow, built and handed over in 3 weeks, from $1,500.">
-<meta name="theme-color" content="#070B14">
-<meta name="color-scheme" content="dark">
-<title>Syeda Marjan</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syeda Marjan | AI Automation &amp; Operations</title>
+<meta name="description" content="Syeda Marjan builds web apps and AI automations with Claude AI, then runs them for real clients. Portfolio, case studies and results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#070B14; --surface:#111827; --surface-2:#18213A; --raised:#1F2A47;
-    --border:#25314F; --text:#F4F5F7; --muted:#A3A8B4; --dim:#7C8496;
-    --accent:#4DA3FF; --accent-deep:#1560D2; --warn:#E8B33F; --danger:#F26D6D;
-    --good:#5FD2A0;
-    --sans:'Sora',system-ui,-apple-system,sans-serif;
-    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
-  }
-
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth; overflow-x:hidden}
-  body{
-    margin:0; background:var(--bg); color:var(--text);
-    font-family:var(--sans); font-size:16px; line-height:1.62;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden; position:relative;
-  }
-
-  /* the rain, as it falls across RTA itself */
-  .rain{
-    position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.4;
-    background-image:
-      radial-gradient(ellipse 2.4px 10px at 50% 50%, rgba(236,242,252,.5) 0%, rgba(236,242,252,0) 74%),
-      radial-gradient(ellipse 1.6px 6px at 50% 50%, rgba(205,215,235,.28) 0%, rgba(205,215,235,0) 74%);
-    background-size:28px 44px, 66px 104px;
-    background-position:0 0, 41px 0;
-  }
-  .glow{
-    position:absolute; left:50%; top:-320px; transform:translateX(-50%);
-    width:min(1100px,100%); height:620px; z-index:0; pointer-events:none;
-    background:radial-gradient(ellipse at center, rgba(21,96,210,.30) 0%, rgba(21,96,210,0) 68%);
-    filter:blur(10px);
-  }
-  main,nav,footer{position:relative; z-index:1}
-
-  .wrap{max-width:1000px; margin:0 auto; padding-inline:22px}
-  .narrow{max-width:64ch}
-
-  h1,h2,h3{margin:0; font-weight:800; letter-spacing:-.02em; text-wrap:balance}
-  h1{font-size:clamp(34px,6.4vw,58px); line-height:1.05}
-  h2{font-size:clamp(25px,3.6vw,36px); line-height:1.16; font-weight:700}
-  h3{font-size:18px; line-height:1.35; font-weight:700; letter-spacing:-.01em}
-  p{margin:0 0 15px}
-  a{color:var(--accent)}
-  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
-  .blue{color:var(--accent)}
-
-  .eyebrow{
-    font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.16em;
-    text-transform:uppercase; color:var(--dim);
-  }
-  .lead{color:var(--muted); font-size:17px}
-
-  /* ---------- nav ---------- */
-  nav{
-    position:sticky; top:0; z-index:40;
-    background:rgba(7,11,20,.82); backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--border);
-  }
-  nav .wrap{display:flex; align-items:center; gap:10px; padding-block:11px; flex-wrap:wrap}
-  nav .me{font-size:15.5px; font-weight:700; letter-spacing:-.01em; margin-right:auto; white-space:nowrap}
-  nav .links{display:flex; gap:3px; flex-wrap:wrap}
-  nav .links a{
-    color:var(--muted); text-decoration:none; font-size:12.5px;
-    padding:7px 11px; border-radius:8px; border:1px solid transparent; white-space:nowrap;
-  }
-  nav .links a:hover{
-    color:var(--text); background:linear-gradient(160deg,#1F2A47 0%,#111827 100%);
-    border-color:var(--border);
-  }
-
-  /* ---------- hero ---------- */
-  header{padding-block:78px 52px}
-  header .tag{margin-top:22px; max-width:60ch; color:var(--muted); font-size:17.5px}
-  .cta{display:flex; gap:11px; flex-wrap:wrap; margin-top:32px}
-  .btn{
-    display:inline-block; text-decoration:none; font-size:14.5px; font-weight:700;
-    padding:12px 22px; border-radius:9px; border:1px solid var(--border);
-    white-space:nowrap; max-width:100%;
-  }
-  @media (max-width:560px){ .btn{white-space:normal} }
-  .btn-solid{
-    background:linear-gradient(160deg,#2E86E8 0%,#1560D2 100%);
-    border-color:#2A6699; color:#061020;
-    box-shadow:0 10px 26px rgba(21,96,210,.32);
-  }
-  .btn-line{color:var(--accent); background:linear-gradient(160deg,#18213A 0%,#111827 100%)}
-  .btn:hover{filter:brightness(1.08)}
-
-  /* ---------- tiles ---------- */
-  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(138px,1fr)); gap:10px}
-  .tile{
-    background:linear-gradient(160deg,#18213A 0%,#111827 100%);
-    border:1px solid var(--border); border-radius:12px; padding:15px 16px;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
-  }
-  .tile .n{
-    font-size:26px; font-weight:800; line-height:1.05; display:block;
-    font-variant-numeric:tabular-nums;
-  }
-  .tile .k{
-    font-size:10.5px; color:var(--muted); margin-top:6px; display:block;
-    letter-spacing:.09em; text-transform:uppercase; line-height:1.35;
-  }
-  .tile.accent{background:linear-gradient(160deg,#163A5C 0%,#0F2941 100%); border-color:#2A6699}
-  .tile.accent .n{color:var(--accent)}
-
-  /* ---------- sections ---------- */
-  section{padding-block:66px; border-top:1px solid var(--border)}
-  .sec-head{margin-bottom:34px}
-  .sec-head h2{margin-top:11px}
-  .sec-head p{margin-top:15px; color:var(--muted)}
-  .mini{
-    font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
-    color:var(--dim); display:block; margin-bottom:12px;
-  }
-  .cap{font-size:13.5px; color:var(--dim); margin:13px 0 0; max-width:74ch; line-height:1.55}
-  .stack{display:flex; flex-direction:column; gap:46px}
-
-  /* ---------- services ---------- */
-  .svc{
-    display:grid; grid-template-columns:52px 1fr; gap:18px;
-    padding-block:24px; border-top:1px solid var(--border);
-  }
-  .svc:first-of-type{border-top:none; padding-top:0}
-  .svc .no{font-family:var(--mono); font-size:12.5px; color:var(--accent); font-weight:600; padding-top:4px}
-  .svc p{margin:8px 0 0; color:var(--muted); font-size:15px}
-  .svc .for{display:block; margin-top:11px; font-size:12.5px; color:var(--dim); font-family:var(--mono)}
-  .svc .for b{color:var(--muted); font-weight:500}
-
-  /* ---------- cards ---------- */
-  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); gap:12px}
-  .card{
-    display:block; text-decoration:none; color:inherit;
-    background:linear-gradient(160deg,#18213A 0%,#111827 100%);
-    border:1px solid var(--border); border-radius:12px; padding:20px;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
-  }
-  .card:hover{border-color:#2A6699}
-  .card:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-  .card .lab{
-    font-family:var(--mono); font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
-    color:var(--accent); display:block; margin-bottom:9px;
-  }
-  .card .t{font-size:17px; font-weight:700; display:block; margin-bottom:7px}
-  .card .d{font-size:13.5px; color:var(--muted); line-height:1.5}
-
-  /* ---------- process ---------- */
-  .step{display:grid; grid-template-columns:32px 1fr; gap:16px; padding-block:15px; border-top:1px solid var(--border)}
-  .step:first-of-type{border-top:none}
-  .step .n{font-family:var(--mono); font-size:12.5px; color:var(--dim); padding-top:4px}
-  .step b{font-size:15px; font-weight:700}
-  .step p{margin:3px 0 0; color:var(--muted); font-size:14.5px}
-
-  /* ---------- quote ---------- */
-  .pull{
-    background:linear-gradient(160deg,#163A5C 0%,#0F2941 100%);
-    border:1px solid #2A6699; border-radius:12px; padding:26px 28px; margin-top:34px;
-  }
-  .pull p{font-size:clamp(17px,2.3vw,21px); line-height:1.45; margin:0; font-weight:600; letter-spacing:-.01em}
-  .pull .who{display:block; margin-top:14px; font-family:var(--mono); font-size:11.5px; color:var(--muted); letter-spacing:.06em}
-
-  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:22px}
-  .chip{
-    font-family:var(--mono); font-size:11.5px; color:var(--muted);
-    border:1px solid var(--border); border-radius:7px; padding:5px 10px;
-    background:rgba(163,168,180,.07);
-  }
-
-  /* ---------- the closing sky ---------- */
-  footer{
-    position:relative; padding-block:70px 78px; border-top:1px solid var(--border);
-    background:linear-gradient(180deg,#070B14 0%,#0B2A63 58%,#1560D2 86%,#2E86E8 100%);
-  }
-  footer .lines{display:flex; flex-direction:column; gap:9px; font-family:var(--mono); font-size:14px; margin-top:26px}
-  footer a{color:#DCEBFF; text-decoration:none}
-  footer a:hover{text-decoration:underline}
-  footer .lead{color:#CFE1FA}
-  footer .eyebrow{color:#BBD4F5}
-  .copy{margin-top:32px; font-size:12.5px; color:#BBD4F5; font-family:var(--mono)}
-  .btn-ghost{
-    background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.34); color:#fff;
-    backdrop-filter:blur(6px);
-  }
-
-  /* ===================== RTA product panels ===================== */
-  .rta{
-    background:#0A101C; border:1px solid var(--border); border-radius:14px;
-    overflow:hidden; box-shadow:0 22px 50px rgba(0,0,0,.5); position:relative;
-  }
-  .rta-in{position:relative; padding:17px}
-  .rta-nav{
-    display:flex; gap:3px; flex-wrap:wrap; align-items:center;
-    border-bottom:1px solid var(--border); padding:0 17px 11px;
-  }
-  .rta-nav span{font-size:12px; color:var(--muted); padding:6px 10px; border-radius:8px; white-space:nowrap}
-  .rta-nav span.on{
-    background:linear-gradient(160deg,#1F2A47 0%,#111827 100%);
-    border:1px solid var(--border); color:var(--text); font-weight:600;
-  }
-  .rta-card{
-    background:linear-gradient(160deg,#18213A 0%,#111827 100%);
-    border:1px solid var(--border); border-radius:11px; padding:14px 16px;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
-  }
-  .rta-h{
-    font-size:14.5px; font-weight:700; margin:0 0 12px;
-    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
-  }
-  .rta-h .count{font-size:11px; color:var(--dim); font-weight:500; letter-spacing:.07em; text-transform:uppercase}
-
-  table.rta-t{width:100%; border-collapse:collapse; font-size:12.5px}
-  table.rta-t th{
-    text-align:left; font-size:10px; letter-spacing:.11em; text-transform:uppercase;
-    color:var(--dim); font-weight:600; padding:0 10px 9px 0; white-space:nowrap;
-    border-bottom:1px solid var(--border);
-  }
-  table.rta-t td{padding:9px 10px 9px 0; border-bottom:1px solid rgba(37,49,79,.55); vertical-align:top}
-  table.rta-t tr:last-child td{border-bottom:none}
-  .rta-mono{font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--muted)}
-  .rta-sub{display:block; font-size:10px; color:var(--dim); margin-top:3px; line-height:1.3}
-  .rta-link{color:var(--accent); text-decoration:none}
-
-  .pill{display:inline-flex; align-items:center; height:22px; padding:0 9px; border-radius:7px; font-size:11px; font-weight:700; white-space:nowrap}
-  .pill-sourced {background:rgba(163,168,180,.14); color:#A3A8B4}
-  .pill-locked  {background:rgba(232,179,63,.14);  color:#E8B33F}
-  .pill-applied {background:rgba(77,163,255,.14);  color:#4DA3FF}
-  .pill-rejected{background:rgba(242,109,109,.14); color:#F26D6D}
-
-  .rta-gate{display:grid; gap:7px}
-  .rta-gate .row{
-    display:flex; gap:12px; align-items:baseline; flex-wrap:wrap;
-    background:#070B14; border:1px solid var(--border); border-radius:9px; padding:10px 12px;
-  }
-  .rta-gate .row .co{font-size:12.5px; font-weight:600}
-  .rta-gate .row .why{font-size:11px; color:var(--danger); margin-left:auto; font-family:var(--mono)}
-  .rta-gate .row.pass .why{color:var(--accent)}
-
-  /* ---------- the AI pipeline ---------- */
-  .pipe{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:12px; align-items:stretch}
-  .pipe-col{display:flex; flex-direction:column; gap:8px; min-width:0}
-  .pipe-lab{font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim)}
-  .pipe-box{
-    background:linear-gradient(160deg,#18213A 0%,#111827 100%);
-    border:1px solid var(--border); border-radius:11px; padding:15px 16px;
-    display:flex; flex-direction:column; gap:5px; flex:1;
-  }
-  .pipe-box b{font-size:14px; font-weight:700}
-  .pipe-box span{font-size:12.5px; color:var(--muted); line-height:1.45}
-  .pipe-box.in{border-left:3px solid var(--accent)}
-  .pipe-box.out{border-left:3px solid var(--good)}
-  .pipe-box.chk{border-left:3px solid var(--warn)}
-  .pipe-box.chk span{padding-left:16px; position:relative; font-size:12px}
-  .pipe-box.chk span::before{content:'\2715'; position:absolute; left:0; top:2px; color:var(--warn); font-size:10px}
-  .pipe-arrow{align-self:center; color:var(--dim); font-size:18px; font-family:var(--mono)}
-  .never{
-    background:rgba(242,109,109,.07); border:1px solid var(--border);
-    border-left:3px solid var(--danger); border-radius:11px; padding:17px 19px; margin-top:16px;
-  }
-  .never-lab{font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--danger); display:block; margin-bottom:8px}
-  .never p{margin:0; font-size:14px; color:var(--muted); line-height:1.55; max-width:76ch}
-
-  /* ---------- the lifecycle ---------- */
-  .flow{
-    background:linear-gradient(160deg,#18213A 0%,#111827 100%);
-    border:1px solid var(--border); border-radius:12px; padding:22px;
-  }
-  .flow-row{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
-  .flow-node{
-    background:#070B14; border:1px solid var(--border); border-radius:9px;
-    padding:7px 13px; font-size:13px; font-weight:700; white-space:nowrap;
-  }
-  .flow-node.gate{border-color:#2A6699; color:var(--accent)}
-  .flow-node.stop{border-color:#5E2F33; color:var(--danger)}
-  .flow-node.hold{border-color:#5B4B24; color:var(--warn)}
-  .flow-node.pass{border-color:#2A5E49; color:var(--good)}
-  .flow-arm{color:var(--dim); font-family:var(--mono)}
-  .flow-branch{display:flex; flex-direction:column; gap:7px; margin:12px 0 14px; padding-left:16px}
-  .branch{display:grid; grid-template-columns:16px auto 1fr; gap:9px; align-items:baseline}
-  .branch-arm{color:var(--dim); font-family:var(--mono); font-size:13px}
-  .branch-why{font-size:12.5px; color:var(--muted); line-height:1.45}
-  .flow-note{margin:17px 0 0; font-size:13px; color:var(--dim); line-height:1.55; padding-top:14px; border-top:1px solid var(--border); max-width:76ch}
-
-  @media (max-width:760px){
-    .pipe{grid-template-columns:1fr; gap:10px}
-    .pipe-arrow{transform:rotate(90deg); justify-self:start; padding-left:14px}
-    .branch{grid-template-columns:16px 1fr}
-    .branch-why{grid-column:2}
-  }
-  @media (max-width:560px){
-    header{padding-block:54px 42px}
-    section{padding-block:50px}
-    .svc{grid-template-columns:1fr; gap:4px}
-    .svc .no{padding-top:0}
-    .rta-in{padding:13px}
-    .rta-nav{padding:0 13px 10px}
-    nav .me{width:100%; margin-right:0}
-  }
+:root{--teal:#064E49;--dark:#092F2D;--lime:#A6ED3A;--bg:#FAFBF8;--muted:#536966;--line:#DFE8E3;--soft:#F1F7F2}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:12px;z-index:5;display:flex;justify-content:center;margin-top:12px}
+nav div{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 8px;display:flex;gap:2px;box-shadow:0 6px 24px rgba(6,78,73,.08);flex-wrap:wrap;justify-content:center}
+nav a{text-decoration:none;color:var(--dark);font-size:14px;font-weight:500;padding:7px 12px;border-radius:999px}
+nav a.cta{background:var(--teal);color:#fff}
+.hero{background:radial-gradient(circle at 85% 10%,#0d6b63 0,#064E49 40%,#092F2D 100%);color:#fff;border-radius:24px;margin:24px auto 0;padding:72px 48px}
+.kick{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:10px}
+.hero .kick{color:var(--lime)}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-.03em;font-weight:800;max-width:800px}
+h1 em{font-style:normal;color:var(--lime)}
+.hero p{font-size:18px;color:#d5e6e0;max-width:640px;margin-top:18px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:10px}
+.btn.lime{background:var(--lime);color:var(--dark)}
+.btn.ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn.teal{background:var(--teal);color:#fff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-top:3px solid var(--lime);border-radius:12px;padding:18px}
+.stat b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em}
+.stat span{font-size:13px;color:#cfe3dc;line-height:1.4;display:block;margin-top:4px}
+section{padding:72px 0 0}
+h2{font-size:clamp(26px,4vw,38px);line-height:1.15;letter-spacing:-.02em;font-weight:800;color:var(--teal);max-width:760px}
+.lede{color:var(--muted);font-size:17px;max-width:700px;margin-top:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.step i{font-style:normal;display:inline-block;background:var(--lime);color:var(--dark);font-weight:800;border-radius:8px;padding:2px 9px;font-size:13px}
+.step h3{margin:12px 0 6px;font-size:18px}
+.step p{color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column}
+.card h3{font-size:19px}
+.card .tag{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.card p{color:var(--muted);font-size:15px;margin:8px 0 12px}
+.res{background:var(--soft);border-left:4px solid var(--lime);border-radius:6px;padding:10px 12px;font-size:14px;font-weight:600;color:var(--teal);margin-bottom:14px}
+.links{margin-top:auto;display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:600}
+.links span{color:var(--muted);font-weight:500}
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+figure{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+figure img{width:100%;display:block;border-radius:8px}
+figure .crop{height:340px;overflow:hidden;border-radius:8px}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+table{width:100%;border-collapse:collapse;margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:15px}
+th{background:var(--teal);color:#fff;text-align:left;padding:12px 14px;font-weight:600}
+td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.skills div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.skills h3{font-size:16px;color:var(--teal);margin-bottom:6px}
+.skills p{font-size:14px;color:var(--muted)}
+.contact{background:var(--teal);color:#fff;border-radius:24px;padding:56px 48px;margin:72px 0 24px}
+.contact h2{color:#fff}
+.contact p{color:#d5e6e0;margin-top:10px;max-width:620px}
+footer{font-size:13px;color:var(--muted);padding:0 0 32px}
+@media(max-width:800px){.hero,.contact{padding:44px 22px}.stats{grid-template-columns:1fr 1fr}.steps,.grid,.proof,.skills{grid-template-columns:1fr}table{font-size:13px}th,td{padding:9px}}
 </style>
 </head>
 <body>
-<div class="rain" aria-hidden="true"></div>
-<div class="glow" aria-hidden="true"></div>
+<nav><div><a href="#how">How I work</a><a href="#software">Software</a><a href="#results">Results</a><a href="#skills">Skills</a><a class="cta" href="#contact">Contact</a></div></nav>
+<div class="wrap">
 
-<nav>
-  <div class="wrap">
-    <span class="me">Syeda Marjan</span>
-    <span class="links">
-      <a href="#offer">What you get</a>
-      <a href="#proof">Proof</a>
-      <a href="#build">What I build</a>
-      <a href="#how">How it runs</a>
-      <a href="#contact">Start</a>
-    </span>
+<header class="hero">
+  <div class="kick">Syeda Marjan | AI Automation &amp; Operations</div>
+  <h1>I build my own software with <em>Claude AI</em>, run it for <em>real clients</em>, and these are the results.</h1>
+  <p>Web apps, AI agents and automations for teams that need every application, email and interview handled. I write the software by describing it to Claude AI, test every screen myself, then run the operation on it.</p>
+  <div class="btns">
+    <a class="btn lime" href="files/Syeda-Marjan-Portfolio.pdf" target="_blank">Read the case studies (PDF)</a>
+    <a class="btn ghost" href="files/Syeda-Marjan-Resume.pdf" target="_blank">Download resume</a>
   </div>
-</nav>
-
-<main>
-
-<header>
-  <div class="wrap">
-    <span class="eyebrow">For teams whose work still runs on spreadsheets, tabs and copy-paste</span>
-    <h1 style="margin-top:20px;">The repetitive half of your operation,<br class="nb">
-      done by <span class="blue">a system instead of a person.</span></h1>
-    <p class="tag">I build the internal tools and AI workflows that take it off your team &mdash;
-      with rules that refuse bad work before anyone touches it, and guardrails that stop the AI
-      inventing anything.</p>
-    <div class="cta">
-      <a class="btn btn-solid" href="#offer">One workflow, built in 3 weeks &mdash; from $1,500</a>
-      <a class="btn btn-line" href="mailto:syedamarjanfarhan0@gmail.com?subject=One%20workflow">Email me</a>
-    </div>
+  <div class="stats">
+    <div class="stat"><b>3.8%</b><span>interview rate for a client: 19 interviews from 500 applications</span></div>
+    <div class="stat"><b>47%</b><span>of bad job listings stopped before anyone applied</span></div>
+    <div class="stat"><b>1 month</b><span>for a senior SEO client to be hired</span></div>
+    <div class="stat"><b>7</b><span>tools built with Claude AI, no dev team</span></div>
   </div>
 </header>
 
-<section id="problem">
-  <div class="wrap">
-    <div class="sec-head narrow">
-      <span class="eyebrow">The problem</span>
-      <h2>You are paying people to do what a rule could do.</h2>
-    </div>
-    <div class="svc">
-      <span class="no">01</span>
-      <div><h3>Work arrives that should never have been started</h3>
-        <p>Nobody checks it at the door, so somebody spends an hour finding out.</p></div>
-    </div>
-    <div class="svc">
-      <span class="no">02</span>
-      <div><h3>The same thing typed into four different tools</h3>
-        <p>And when the four disagree, nobody knows which one is right.</p></div>
-    </div>
-    <div class="svc">
-      <span class="no">03</span>
-      <div><h3>AI that writes something nobody verified</h3>
-        <p>It is confident, it is wrong, and it went out under your name.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="offer">
-  <div class="wrap">
-    <div class="sec-head narrow">
-      <span class="eyebrow">What you get</span>
-      <h2>One workflow, built and handed over.</h2>
-    </div>
-    <div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));">
-      <div class="tile accent"><span class="n">$1,500</span><span class="k">From, fixed price</span></div>
-      <div class="tile"><span class="n">3 weeks</span><span class="k">Start to handover</span></div>
-      <div class="tile"><span class="n">Yours</span><span class="k">The code and the account</span></div>
-    </div>
-    <div class="cards" style="margin-top:22px;">
-      <div class="card">
-        <span class="lab">Week 1</span>
-        <span class="t">Watch the real work</span>
-        <span class="d">I sit with what actually happens and measure it. You get the fault written
-          down with what it costs &mdash; before anything is built.</span>
-      </div>
-      <div class="card">
-        <span class="lab">Week 2</span>
-        <span class="t">Build it small</span>
-        <span class="d">The workflow, running on your own tools and your own data. In use that
-          week, so a bad idea is found in hours rather than after a quarter.</span>
-      </div>
-      <div class="card">
-        <span class="lab">Week 3</span>
-        <span class="t">Hand it over</span>
-        <span class="d">Checked against the rows already in your system, not just in theory. Your
-          team is shown how it works and what to do when it is wrong.</span>
-      </div>
-    </div>
-    <p class="cap" style="margin-top:18px; max-width:70ch;">
-      More than one workflow, or something that needs to keep running, is quoted after week 1 &mdash;
-      once the cost of the fault is a number rather than a guess.
-    </p>
-    <div class="cta" style="margin-top:22px;">
-      <a class="btn btn-solid" href="mailto:syedamarjanfarhan0@gmail.com?subject=One%20workflow">Tell me what is breaking</a>
-    </div>
-  </div>
-</section>
-
-<section id="proof">
-  <div class="wrap">
-    <div class="sec-head narrow">
-      <span class="eyebrow">Proof</span>
-      <h2>A system I own, running a live operation.</h2>
-      <p>RTA. Not a demo and not a side project &mdash; every figure below is read from its
-        database, today.</p>
-    </div>
-
-    <div class="tiles">
-      <div class="tile accent"><span class="n">2,219</span><span class="k">Jobs through it</span></div>
-      <div class="tile"><span class="n">47%</span><span class="k">Refused before a person saw them</span></div>
-      <div class="tile"><span class="n">771</span><span class="k">AI documents written</span></div>
-      <div class="tile"><span class="n">$34.98</span><span class="k">Total AI spend</span></div>
-      <div class="tile"><span class="n">5,007</span><span class="k">Actions, all audited</span></div>
-      <div class="tile"><span class="n">88</span><span class="k">Interviews out the other end</span></div>
-    </div>
-
-    <p class="cap" style="margin:16px 0 26px; max-width:74ch;">
-      Nearly half of everything that arrives is turned away automatically, each refusal with its
-      reason attached. 771 tailored documents cost $34.98 in total &mdash; about four and a half
-      pence each.
-    </p>
-
-    <div class="rta" role="img" aria-label="RTA's intake deciding on six incoming links: four refused with a reason, one held, one accepted">
-      <div class="rta-in">
-        <div class="rta-card">
-          <h4 class="rta-h">Intake <span class="count">six links arriving</span></h4>
-          <div class="rta-gate">
-            <div class="row"><span class="co">Verity Group</span>
-              <span class="rta-mono">SEO Specialist &middot; posted 28 Aug</span>
-              <span class="why">refused &middot; older than 15 days</span></div>
-            <div class="row"><span class="co">Ashfield Partners</span>
-              <span class="rta-mono">Digital Marketing &middot; Hybrid</span>
-              <span class="why">refused &middot; onsite or hybrid</span></div>
-            <div class="row"><span class="co">Northwind Labs</span>
-              <span class="rta-mono">Senior SEO Strategist</span>
-              <span class="why">refused &middot; already in the pipeline</span></div>
-            <div class="row"><span class="co">&#26666;&#24335;&#20250;&#31038;&#12472;&#12458;&#12467;&#12540;&#12489;</span>
-              <span class="rta-mono">SEO&#12467;&#12531;&#12469;&#12523;&#12479;&#12531;&#12488;</span>
-              <span class="why">refused &middot; not in English</span></div>
-            <div class="row"><span class="co">Halden Media</span>
-              <span class="rta-mono">SEO Manager &middot; setup not stated</span>
-              <span class="why" style="color:#E8B33F;">held &middot; a field is missing</span></div>
-            <div class="row pass"><span class="co">Meridian Health</span>
-              <span class="rta-mono">Content &amp; SEO Lead &middot; Remote &middot; posted 18 Sep</span>
-              <span class="why">accepted</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="cap">Four turned away, one held because a field was missing rather than wrong, one
-      through. No one was asked to look at the other five.</p>
-
-    <p style="margin-top:22px;"><a href="https://claude.ai/artifact/MzmRBdHuWpTTVkEu8U7pFp">The full
-      case study &rarr;</a> <span style="color:var(--dim);">&mdash; the screens, the AI guardrails,
-      and seven decisions with the fault behind each one.</span></p>
-  </div>
-</section>
-
-<section id="build">
-  <div class="wrap">
-    <div class="sec-head narrow">
-      <span class="eyebrow">What I build</span>
-      <h2>Three kinds of thing.</h2>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <span class="lab">01</span>
-        <span class="t">A rule at the door</span>
-        <span class="d">Work that should not have been started is refused before anyone touches
-          it, with the reason recorded so the source can be told to stop sending it.</span>
-      </div>
-      <div class="card">
-        <span class="lab">02</span>
-        <span class="t">AI that cannot invent</span>
-        <span class="d">The model writes a few named fields and nothing else, inside rules you
-          set, and what comes back is checked before it can be saved.</span>
-      </div>
-      <div class="card">
-        <span class="lab">03</span>
-        <span class="t">One place instead of four</span>
-        <span class="d">The tools you already pay for, joined up, so nothing is re-typed and
-          every change is recorded against the person who made it.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="how">
-  <div class="wrap">
-    <div class="sec-head narrow">
-      <span class="eyebrow">How it runs</span>
-      <h2>Find the fault. Name what it costs. Then write the rule.</h2>
-      <p>Every rule in RTA came from something going wrong in live operation, not from a plan
-        written in advance. That is the whole method.</p>
-    </div>
+  <div class="kick">How I work</div>
+  <h2>Build it. Run it for real clients. Show the result.</h2>
+  <div class="steps">
+    <div class="step"><i>01</i><h3>Build with Claude AI</h3><p>I turn a slow manual task into a web app or automation, coded with Claude AI and Claude Code. React, Node.js, PostgreSQL, deployed on Render and Cloudflare.</p></div>
+    <div class="step"><i>02</i><h3>Run it on real work</h3><p>I put the tool in front of a real team or client the same week, and I run the operation on it myself: sourcing, applying, email, follow-ups and scheduling.</p></div>
+    <div class="step"><i>03</i><h3>Measure the result</h3><p>Every tool records what happened, so the result is a number, not a claim: applications sent, interviews booked, jobs filtered, clients hired.</p></div>
   </div>
 </section>
 
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head narrow">
-      <span class="eyebrow">Who I am</span>
-      <h2>I decide what the system must do.</h2>
-    </div>
-    <div class="narrow">
-      <p class="lead">Using AI in production since 2019. I wrote 87 numbered specifications into
-        RTA, each one traceable in the code it produced, and I judge every one against what it
-        costs when it is wrong. I do not write the code. I decide what it must do and send it back
-        when it is wrong, which is the half that decides whether the thing works.</p>
-      <p class="lead">Six years of recruitment operations underneath it &mdash; 10,000+ candidate
-        applications, a team of 15 &mdash; which is where I learned what a fault actually costs.</p>
-      <div class="chips">
-        <span class="chip">Claude</span><span class="chip">Anthropic API</span>
-        <span class="chip">Prompt &amp; guardrail design</span><span class="chip">n8n</span>
-        <span class="chip">Python</span><span class="chip">PostgreSQL</span>
-        <span class="chip">REST APIs</span><span class="chip">Google Workspace APIs</span>
-        <span class="chip">Render</span><span class="chip">GitHub</span>
-      </div>
-    </div>
+<section id="software">
+  <div class="kick">Software I built</div>
+  <h2>Seven tools, each used on real client work.</h2>
+  <div class="grid">
+    <div class="card"><span class="tag">Web app, AI agents</span><h3>RTA (Corda Flow)</h3><p>The job application platform my team works in every day: sourcing, applying, manager review and an interview CRM. AI agents read each posting and tailor every resume and cover letter.</p><div class="res">2,219 jobs tracked, 771 tailored documents, SEO client hired in a month</div><div class="links"><a href="https://getrobiq.com/corda-flow" target="_blank">See it on getrobiq.com</a><span>Code private, demo on request</span></div></div>
+    <div class="card"><span class="tag">Client login</span><h3>Robiq client portal</h3><p>Each client logs in and sees every application and interview from their own job search, live.</p><div class="res">500 applications, 19 interviews for one client</div><div class="links"><a href="https://getrobiq.com/results" target="_blank">Results page</a></div></div>
+    <div class="card"><span class="tag">AI job finder</span><h3>Corda Scout</h3><p>Searches LinkedIn, Indeed and nine ATS platforms, checks each job against the team's rules and sends in only valid ones.</p><div class="res">47% of listings were dead, duplicate or wrong-country and were stopped</div><div class="links"><span>Code private, demo on request</span></div></div>
+    <div class="card"><span class="tag">Cold email software</span><h3>Client Outreach</h3><p>Cold email outreach for companies. It finds the right person's email, writes a draft to match that lead, and sends it from the client's own email account, with daily limits and inbox warm-up.</p><div class="res">Runs every weekday for Robiq outreach</div><div class="links"><span>Demo on request</span></div></div>
+    <div class="card"><span class="tag">Video AI</span><h3>Clipper</h3><p>Cuts one long video into short vertical clips with captions. AI reads the transcript and picks the best moments. Built for a client.</p><div class="res">One long video in, a set of ready-to-post clips out</div><div class="links"><a href="https://github.com/syedamarjanfarhan0-droid/clipper" target="_blank">GitHub</a></div></div>
+    <div class="card"><span class="tag">AI support</span><h3>Support Desk</h3><p>A ticket board where AI reads every ticket and flags the risk, so urgent ones are handled first.</p><div class="res">Urgent tickets surface first, automatically</div><div class="links"><a href="https://github.com/syedamarjanfarhan0-droid/support-desk" target="_blank">GitHub</a></div></div>
+    <div class="card"><span class="tag">Job tools</span><h3>Job Finder and Job Aggregator</h3><p>Job Finder turns a LinkedIn post into the company's own careers page link. Job Aggregator pulls four job sources into one clean feed.</p><div class="res">Clients apply direct, not through crowded job boards</div><div class="links"><a href="https://github.com/syedamarjanfarhan0-droid/Source-link" target="_blank">Job Aggregator on GitHub</a></div></div>
+    <div class="card"><span class="tag">Website</span><h3>getrobiq.com</h3><p>My business website, coded with Claude AI: 26 SEO pages with schema markup, a live product demo, a client login and a contact form with email alerts.</p><div class="res">26 SEO pages, indexed on Google and Bing</div><div class="links"><a href="https://getrobiq.com" target="_blank">Visit getrobiq.com</a></div></div>
   </div>
 </section>
 
-</main>
-
-<footer id="contact">
-  <div class="wrap narrow">
-    <span class="eyebrow">Start</span>
-    <h2 style="margin-top:12px;">Tell me what is breaking.</h2>
-    <p class="lead" style="margin-top:15px;">A short note about the operation and where it hurts.
-      I reply within a day, and I will say plainly if it is not something I should take on.</p>
-    <div class="cta" style="margin-bottom:6px;">
-      <a class="btn btn-ghost" href="mailto:syedamarjanfarhan0@gmail.com?subject=One%20workflow">syedamarjanfarhan0@gmail.com</a>
-    </div>
-    <div class="lines">
-      <a href="https://linkedin.com/in/syedamarjan" target="_blank" rel="noopener">linkedin.com/in/syedamarjan</a>
-      <a href="https://github.com/syedamarjanfarhan0-droid" target="_blank" rel="noopener">github.com/syedamarjanfarhan0-droid</a>
-      <a href="https://upwork.com/fl/syedamarjan" target="_blank" rel="noopener">upwork.com/fl/syedamarjan</a>
-    </div>
-    <p class="copy">&copy; 2026 Syeda Marjan &middot; Islamabad, Pakistan &middot; working remotely</p>
+<section id="results">
+  <div class="kick">Real proof</div>
+  <h2>Real records, not mock-ups.</h2>
+  <p class="lede">The interview log I kept in Notion, and a real client's login. Client names are blurred.</p>
+  <div class="proof">
+    <figure><div class="crop"><img src="img/interviews-jun.jpg" alt="Notion interview log, June"></div><figcaption>17 interviews booked between 11 and 15 June.</figcaption></figure>
+    <figure><div class="crop"><img src="img/interviews-jul-aug.jpg" alt="Notion interview log, July to August"></div><figcaption>24 July to 6 August. McKesson, CyberMaxx and Twilio became hires.</figcaption></figure>
+    <figure><img src="img/portal-client.jpg" alt="Robiq client portal"><figcaption>A real client's login: 500 applications, 19 interviews.</figcaption></figure>
+    <figure><img src="img/crm.jpg" alt="Interview CRM in RTA"><figcaption>Interview CRM in RTA (example data from the demo account).</figcaption></figure>
   </div>
-</footer>
+  <table>
+    <tr><th>Where</th><th>My role</th><th>Result</th></tr>
+    <tr><td><b>Robiq</b> (my business)</td><td>Founder: client job searches, website, software</td><td>SEO lead hired in a month; 500 applications and 19 interviews for another client</td></tr>
+    <tr><td><b>Corda Digital</b></td><td>Operations Lead: built and ran the team platform</td><td>47% of bad listings stopped; 2,219 jobs and 771 documents</td></tr>
+    <tr><td><b>CNT Consulting</b></td><td>Business Development, promoted to Project Manager</td><td>10,132 applications, 88 interview requests, 3 clients hired in under a month</td></tr>
+    <tr><td><b>US software engineer</b></td><td>Virtual Assistant: job search, inbox, scheduling</td><td>Hired at Twilio</td></tr>
+  </table>
+</section>
+
+<section id="skills">
+  <div class="kick">Skills</div>
+  <h2>What I bring to a team.</h2>
+  <div class="skills">
+    <div><h3>AI automation</h3><p>AI agents, Claude AI, ChatGPT, LLM prompts, n8n, workflow automation, APIs</p></div>
+    <div><h3>Web development</h3><p>Vibe coding with Claude Code, React, Node.js, PostgreSQL, websites, GitHub, Render, Cloudflare</p></div>
+    <div><h3>Operations</h3><p>Team management, SOPs, KPI reporting, inbox and calendar management, scheduling, CRM</p></div>
+    <div><h3>Recruiting operations</h3><p>Job sourcing, application tracking, interview coordination, recruiter follow-ups</p></div>
+    <div><h3>Outreach and lead generation</h3><p>Cold email, lead research, Apollo.io, Hunter.io, HubSpot</p></div>
+    <div><h3>SEO and web</h3><p>Google Search Console, GA4, schema markup, SEO pages</p></div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <div class="kick" style="color:var(--lime)">Contact</div>
+  <h2>Need a tool like these, or someone to run the operation behind it?</h2>
+  <p>Tell me what is slow or breaking in your team. I will show you what I would build and how we would measure it.</p>
+  <div class="btns">
+    <a class="btn lime" href="mailto:marjansyeda0@gmail.com">marjansyeda0@gmail.com</a>
+    <a class="btn ghost" href="https://linkedin.com/in/syedamarjan" target="_blank">LinkedIn</a>
+    <a class="btn ghost" href="https://github.com/syedamarjanfarhan0-droid" target="_blank">GitHub</a>
+  </div>
+</div>
+<footer>© 2026 Syeda Marjan, Islamabad, Pakistan, Remote worldwide</footer>
+</div>
 </body>
 </html>
